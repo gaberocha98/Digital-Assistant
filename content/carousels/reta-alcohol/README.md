@@ -16,18 +16,19 @@ ln -sf /opt/node22/lib/node_modules node_modules   # or: npm i playwright
 node render.mjs
 ```
 
-## Slide flow
+## Slide flow (8 slides)
 1. Cover / hook — "Why alcohol hits way harder on retatrutide"
 2. Mechanism 1 — slowed gastric emptying
 3. What people report — faster drunk, worse hangovers, nausea/reflux
 4. Mechanism 2 — reduced alcohol-metabolizing enzyme (GLP-1 research)
 5. Mechanism 3 — weight loss lowers tolerance (less body water → higher BAC)
-6. Practical takeaways (added)
-7. CTA + disclaimer (added)
+6. Mechanism 4 — appetite loss → drinking on a near-empty stomach
+7. Practical takeaways (added value beyond the original)
+8. CTA + disclaimer
 
-> Slides 6 & 7 were not in the source (only 1–5 of 7 were supplied), so they
-> were written fresh. Swap `eonresearch.bio` / the "E" logo mark for final
-> brand assets before posting.
+> Mechanisms 1–4 and the CTA mirror the 7-slide source; slide 7 (practical
+> takeaways) is added value. Swap `eonresearch.bio`, the "E" logo mark, and
+> the "Comment PEPTIDES" keyword for your real brand assets before posting.
 
 ## Suggested caption
 Two drinks now hitting like four? If you're on retatrutide (or any GLP-1),

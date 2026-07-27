@@ -10,7 +10,7 @@ const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1080, height: 1080 }, deviceScaleFactor: 2 });
 await page.goto(html, { waitUntil: 'networkidle' });
 
-for (let i = 1; i <= 7; i++) {
+for (let i = 1; i <= 8; i++) {
   const el = await page.$(`#s${i}`);
   const file = path.join(outDir, `slide-${String(i).padStart(2, '0')}.png`);
   await el.screenshot({ path: file });
