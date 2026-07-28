@@ -1,0 +1,230 @@
+<meta charset="utf-8">
+<style>
+  :root{
+    --bg:#0A0F1C;
+    --bg2:#0E1626;
+    --ink:#F5F7FA;
+    --muted:#95A3B8;
+    --teal:#2DD4BF;
+    --teal-dim:#0F3B37;
+    --amber:#F5A524;
+    --line:#1C2740;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#05070d;font-family:"Liberation Sans","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .slide{
+    position:relative;width:1080px;height:1080px;overflow:hidden;
+    background:radial-gradient(120% 90% at 12% 8%, #12203a 0%, var(--bg2) 42%, var(--bg) 100%);
+    color:var(--ink);display:flex;flex-direction:column;
+    padding:84px 90px;
+  }
+  /* subtle top glow */
+  .slide::before{content:"";position:absolute;top:-260px;right:-160px;width:640px;height:640px;
+    background:radial-gradient(circle, rgba(45,212,191,.14) 0%, rgba(45,212,191,0) 68%);pointer-events:none}
+  /* header */
+  .head{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2}
+  .brand{display:flex;align-items:center;gap:16px}
+  .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--teal),#12b8a6);
+    display:flex;align-items:center;justify-content:center;font-weight:700;color:#04120f;font-size:24px;box-shadow:0 6px 22px rgba(45,212,191,.35)}
+  .brand .name{font-size:22px;font-weight:700;letter-spacing:.14em}
+  .brand .name span{color:var(--teal)}
+  .counter{font-size:20px;font-weight:700;color:var(--muted);letter-spacing:.05em;
+    border:1px solid var(--line);padding:8px 16px;border-radius:999px}
+  /* body area */
+  .content{flex:1;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+  .kicker{display:inline-flex;align-items:center;gap:12px;color:var(--teal);font-size:22px;font-weight:700;
+    letter-spacing:.22em;text-transform:uppercase;margin-bottom:30px}
+  .kicker::before{content:"";width:40px;height:3px;background:var(--teal);border-radius:2px}
+  h1{font-size:92px;line-height:1.02;font-weight:700;letter-spacing:-.02em}
+  h1 .hl{color:var(--teal)}
+  .hook-sub{margin-top:40px;font-size:38px;line-height:1.32;color:var(--muted);font-weight:400;max-width:850px}
+  h2{font-size:62px;line-height:1.08;font-weight:700;letter-spacing:-.015em;margin-bottom:36px}
+  h2 .hl{color:var(--teal)}
+  p.body{font-size:40px;line-height:1.46;color:#D3DBE8;font-weight:400;max-width:900px}
+  p.body + p.body{margin-top:30px}
+  .kw{color:var(--amber);font-weight:700}
+  ul.pts{list-style:none;margin-top:8px}
+  ul.pts li{display:flex;gap:26px;align-items:flex-start;font-size:44px;line-height:1.28;
+    padding:26px 0;border-bottom:1px solid var(--line)}
+  ul.pts li:last-child{border-bottom:none}
+  ul.pts .dot{flex:0 0 auto;width:18px;height:18px;margin-top:16px;border-radius:50%;
+    background:var(--teal);box-shadow:0 0 0 6px rgba(45,212,191,.14)}
+  ul.pts.amber .dot{background:var(--amber);box-shadow:0 0 0 6px rgba(245,165,36,.16)}
+  .cite{margin-top:40px;display:inline-block;font-size:24px;color:var(--muted);
+    border-left:3px solid var(--teal);padding:6px 0 6px 22px;line-height:1.4}
+  /* footer */
+  .foot{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2;
+    color:var(--muted);font-size:22px}
+  .foot .handle{font-weight:700;color:#C7D0DE;letter-spacing:.02em}
+  .swipe{display:flex;align-items:center;gap:12px;color:var(--teal);font-weight:700}
+  .swipe .arrow{font-size:30px;line-height:1}
+  /* progress dots */
+  .dots{display:flex;gap:10px}
+  .dots i{width:10px;height:10px;border-radius:50%;background:var(--line);display:block}
+  .dots i.on{background:var(--teal);width:26px;border-radius:6px}
+
+  /* ---- COVER (slide 1) specifics ---- */
+  .cover h1{font-size:104px}
+  .cover .content{justify-content:flex-end;padding-bottom:20px}
+  .big-mark{position:absolute;top:150px;left:90px;font-size:300px;line-height:.8;font-weight:700;
+    color:rgba(45,212,191,.07);letter-spacing:-.04em;z-index:1;user-select:none}
+
+  /* ---- CTA (last slide) ---- */
+  .cta{align-items:center;text-align:center}
+  .cta .content{align-items:center}
+  .cta h1{font-size:96px}
+  .cta .hook-sub{text-align:center}
+  .cta-badge{margin-top:54px;display:inline-flex;align-items:center;gap:16px;background:var(--teal);
+    color:#04120f;font-weight:700;font-size:34px;padding:22px 44px;border-radius:999px;
+    box-shadow:0 12px 40px rgba(45,212,191,.35)}
+  .disc{margin-top:auto;font-size:20px;color:#5f6d84;text-align:center;line-height:1.4;position:relative;z-index:2}
+</style>
+
+<!-- ================= SLIDE 1 — COVER ================= -->
+<div class="slide cover" id="s1">
+  <div class="big-mark">Rx</div>
+  <div class="head">
+    <div class="brand"><div class="logo">E</div><div class="name">EON<span>·</span>RESEARCH</div></div>
+    <div class="counter">01 / 08</div>
+  </div>
+  <div class="content">
+    <span class="kicker">Peptide Science</span>
+    <h1>Why alcohol hits <span class="hl">way harder</span> on retatrutide</h1>
+    <p class="hook-sub">If two drinks suddenly feel like four, you're not imagining it. Here's the science.</p>
+  </div>
+  <div class="foot">
+    <div class="handle">eonresearch.bio</div>
+    <div class="swipe">Swipe <span class="arrow">→</span></div>
+  </div>
+</div>
+
+<!-- ================= SLIDE 2 — MECH 1 ================= -->
+<div class="slide" id="s2">
+  <div class="head">
+    <div class="brand"><div class="logo">E</div><div class="name">EON<span>·</span>RESEARCH</div></div>
+    <div class="counter">02 / 08</div>
+  </div>
+  <div class="content">
+    <span class="kicker">Mechanism 1</span>
+    <h2>It starts in your <span class="hl">stomach</span></h2>
+    <p class="body">Retatrutide <span class="kw">slows gastric emptying</span>. Food and alcohol linger longer before moving on.</p>
+    <p class="body">That shifts how alcohol enters your bloodstream — so many people feel intoxicated on far less than they used to.</p>
+  </div>
+  <div class="foot">
+    <div class="dots"><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="handle">eonresearch.bio</div>
+  </div>
+</div>
+
+<!-- ================= SLIDE 3 — REPORTS ================= -->
+<div class="slide" id="s3">
+  <div class="head">
+    <div class="brand"><div class="logo">E</div><div class="name">EON<span>·</span>RESEARCH</div></div>
+    <div class="counter">03 / 08</div>
+  </div>
+  <div class="content">
+    <span class="kicker">What people report</span>
+    <h2>Three things come up<br><span class="hl">again and again</span></h2>
+    <ul class="pts amber">
+      <li><span class="dot"></span><span>Getting drunk noticeably <b>faster</b></span></li>
+      <li><span class="dot"></span><span>Hangovers that are <b>harder and longer</b></span></li>
+      <li><span class="dot"></span><span>More <b>nausea and acid reflux</b></span></li>
+    </ul>
+  </div>
+  <div class="foot">
+    <div class="dots"><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="handle">eonresearch.bio</div>
+  </div>
+</div>
+
+<!-- ================= SLIDE 4 — MECH 2 ================= -->
+<div class="slide" id="s4">
+  <div class="head">
+    <div class="brand"><div class="logo">E</div><div class="name">EON<span>·</span>RESEARCH</div></div>
+    <div class="counter">04 / 08</div>
+  </div>
+  <div class="content">
+    <span class="kicker">Mechanism 2</span>
+    <h2>The <span class="hl">enzyme</span> connection</h2>
+    <p class="body">Research on GLP-1 receptor agonists points to reduced activity of a key <span class="kw">alcohol-metabolizing enzyme</span>.</p>
+    <p class="body">Break alcohol down more slowly, and your blood alcohol climbs higher — and stays elevated longer.</p>
+    <span class="cite">Reported in <b>npj Metabolic Health &amp; Disease</b></span>
+  </div>
+  <div class="foot">
+    <div class="dots"><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+    <div class="handle">eonresearch.bio</div>
+  </div>
+</div>
+
+<!-- ================= SLIDE 5 — MECH 3 ================= -->
+<div class="slide" id="s5">
+  <div class="head">
+    <div class="brand"><div class="logo">E</div><div class="name">EON<span>·</span>RESEARCH</div></div>
+    <div class="counter">05 / 08</div>
+  </div>
+  <div class="content">
+    <span class="kicker">Mechanism 3</span>
+    <h2>Weight loss quietly <span class="hl">lowers tolerance</span></h2>
+    <p class="body">Less body mass means less body water. The same drink now spreads through a <span class="kw">smaller volume</span> — pushing your blood alcohol concentration higher.</p>
+    <p class="body">You didn't change. <b>Your body did.</b></p>
+  </div>
+  <div class="foot">
+    <div class="dots"><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></div>
+    <div class="handle">eonresearch.bio</div>
+  </div>
+</div>
+
+<!-- ================= SLIDE 6 — MECH 4 (empty stomach) ================= -->
+<div class="slide" id="s6">
+  <div class="head">
+    <div class="brand"><div class="logo">E</div><div class="name">EON<span>·</span>RESEARCH</div></div>
+    <div class="counter">06 / 08</div>
+  </div>
+  <div class="content">
+    <span class="kicker">Mechanism 4</span>
+    <h2>An almost <span class="hl">empty stomach</span></h2>
+    <p class="body">Retatrutide crushes appetite, so you eat less. That often means drinking with <span class="kw">nothing in the tank</span>.</p>
+    <p class="body">No food to slow it down, and alcohol hits faster and harder than it ever did before.</p>
+  </div>
+  <div class="foot">
+    <div class="dots"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i></div>
+    <div class="handle">eonresearch.bio</div>
+  </div>
+</div>
+
+<!-- ================= SLIDE 7 — PRACTICAL (added) ================= -->
+<div class="slide" id="s7">
+  <div class="head">
+    <div class="brand"><div class="logo">E</div><div class="name">EON<span>·</span>RESEARCH</div></div>
+    <div class="counter">07 / 08</div>
+  </div>
+  <div class="content">
+    <span class="kicker">What to do with this</span>
+    <h2>Drink like your body<br><span class="hl">actually changed</span></h2>
+    <ul class="pts">
+      <li><span class="dot"></span><span>Start with <b>half</b> your usual amount</span></li>
+      <li><span class="dot"></span><span>Eat and hydrate <b>before</b> you drink</span></li>
+      <li><span class="dot"></span><span>Leave <b>more time</b> between rounds</span></li>
+      <li><span class="dot"></span><span>Skip drinking right after a <b>fresh dose</b></span></li>
+    </ul>
+  </div>
+  <div class="foot">
+    <div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i></div>
+    <div class="handle">eonresearch.bio</div>
+  </div>
+</div>
+
+<!-- ================= SLIDE 8 — CTA ================= -->
+<div class="slide cta" id="s8">
+  <div class="head" style="width:100%">
+    <div class="brand"><div class="logo">E</div><div class="name">EON<span>·</span>RESEARCH</div></div>
+    <div class="counter">08 / 08</div>
+  </div>
+  <div class="content">
+    <span class="kicker" style="align-self:center">Go deeper</span>
+    <h1>Want the full<br><span class="hl">protocol?</span></h1>
+    <p class="hook-sub">Comment <b>PEPTIDES</b> for our GLP-1 &amp; alcohol guide — plus evidence-based breakdowns on every peptide.</p>
+    <div class="cta-badge">Save &amp; follow → eonresearch.bio</div>
+  </div>
+  <div class="disc">Educational content only — not medical advice. Talk to your prescriber about alcohol while on any GLP-1 medication.</div>
+</div>

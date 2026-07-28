@@ -1,31 +1,42 @@
-# Carousel — "Why alcohol hits harder on Reta"
+# Carousel — Why alcohol hits harder on retatrutide
 
-EON Research rebrand of a 7-slide Instagram carousel. Dark theme using the
-brand palette in [`/brand/colors.md`](../../../brand/colors.md) (teal `#0D9488`
-+ amber gold `#F59E0B`), Inter typeface.
+Remake of an Instagram carousel (@joeknowspeps original), rebuilt as an
+on-brand, evidence-forward 7-slide set. **Loose reinterpretation** — copy
+rewritten in our own voice, structure improved, hook and CTA added.
 
-## Output
-- `slides/EON-Reta-01.png` … `EON-Reta-07.png` — 2160×2700 (2× Instagram 1080×1350 portrait)
+## Files
+- `slides.html` — source layout for all 7 slides (1080×1080 each)
+- `render.mjs` — Playwright script that exports each slide to PNG @2x (2160×2160)
+- `slides/slide-01.png` … `slide-07.png` — ready-to-post images
 
-## Slides
-1. Hook — "Why alcohol hits way harder on Reta"
-2. Slowed digestion — Reta slows gastric emptying
-3. What people report — drunk faster / worse hangovers / worse nausea & reflux
-4. The research — GLP-1 reduces an alcohol-metabolizing enzyme (npj Metabolic Health and Disease)
-5. Lower tolerance — weight loss → less body water → higher BAC
-6. Empty stomach — appetite suppression → drinking on an empty stomach
-7. CTA — Comment "PEP" for the EON beginner's guide
-
-## Regenerating
+## Rebuild
 ```bash
 cd content/carousels/reta-alcohol
-# Requires: node, playwright, and Inter fonts embedded at ./fonts/inter-embed.css
-node render.js   # writes PNGs to ./out
+ln -sf /opt/node22/lib/node_modules node_modules   # or: npm i playwright
+node render.mjs
 ```
-The renderer expects `fonts/inter-embed.css` (base64-embedded Inter, weights
-400–900). It is not committed here due to size; generate it from the Inter
-font files, or point `template.js` at a locally installed "Inter" family.
 
-## Editing copy
-All slide text and highlight markup live in `slides.js`
-(`<span class="hl">` = amber highlight, `<span class="tl">` = teal/mint highlight).
+## Slide flow (8 slides)
+1. Cover / hook — "Why alcohol hits way harder on retatrutide"
+2. Mechanism 1 — slowed gastric emptying
+3. What people report — faster drunk, worse hangovers, nausea/reflux
+4. Mechanism 2 — reduced alcohol-metabolizing enzyme (GLP-1 research)
+5. Mechanism 3 — weight loss lowers tolerance (less body water → higher BAC)
+6. Mechanism 4 — appetite loss → drinking on a near-empty stomach
+7. Practical takeaways (added value beyond the original)
+8. CTA + disclaimer
+
+> Mechanisms 1–4 and the CTA mirror the 7-slide source; slide 7 (practical
+> takeaways) is added value. Swap `eonresearch.bio`, the "E" logo mark, and
+> the "Comment PEPTIDES" keyword for your real brand assets before posting.
+
+## Suggested caption
+Two drinks now hitting like four? If you're on retatrutide (or any GLP-1),
+you're not imagining it. Here's what's actually happening in your body —
+and how to drink smarter for the version of you that exists now. 🔬
+
+Save this for your next night out, and send it to the friend who needs it.
+
+*Educational only — not medical advice. Always talk to your prescriber.*
+
+#retatrutide #GLP1 #peptides #tirzepatide #weightloss #alcohol #metabolichealth
