@@ -130,13 +130,13 @@ function renderSlide(s, idx) {
   .hl{color:var(--amber);font-weight:700;}
   .tl{color:var(--mint);font-weight:600;}
 
-  .cover-title{font-weight:800;font-size:106px;line-height:1.02;letter-spacing:-2px;color:#fff;}
+  .cover-title{font-weight:900;font-size:88px;line-height:1.05;letter-spacing:1px;text-transform:uppercase;color:#fff;}
   .rule{width:120px;height:6px;background:linear-gradient(90deg,var(--amber),var(--teal));border-radius:3px;margin:46px 0 40px;}
   .cover-sub{font-weight:500;font-size:44px;line-height:1.4;color:#B9C6C9;max-width:820px;}
   .swipe{margin-top:64px;font-weight:600;font-size:28px;color:var(--dim);letter-spacing:1px;}
   .swipe span{color:var(--amber);margin-left:6px;font-size:32px;}
 
-  .body-title{font-weight:800;font-size:60px;line-height:1.12;letter-spacing:-1px;color:#fff;margin-bottom:36px;}
+  .body-title{font-weight:800;font-size:52px;line-height:1.16;letter-spacing:1px;text-transform:uppercase;color:#fff;margin-bottom:36px;}
   .body-text{font-weight:500;font-size:52px;line-height:1.42;color:#DCE6E8;}
   .cite{margin-top:48px;font-weight:600;font-size:26px;letter-spacing:0.5px;color:var(--dim);padding-left:22px;border-left:3px solid var(--teal);}
 
@@ -148,7 +148,7 @@ function renderSlide(s, idx) {
   .li-txt{font-weight:500;font-size:50px;line-height:1.25;color:#DCE6E8;}
 
   /* cta */
-  .cta-title{font-weight:900;font-size:96px;line-height:1.0;letter-spacing:-2px;color:#fff;margin-bottom:40px;}
+  .cta-title{font-weight:900;font-size:84px;line-height:1.04;letter-spacing:1px;text-transform:uppercase;color:#fff;margin-bottom:40px;}
   .cta-btn{
     margin-top:64px;align-self:flex-start;display:inline-flex;align-items:center;gap:18px;
     background:linear-gradient(135deg,var(--amber),#EA8C0A);
